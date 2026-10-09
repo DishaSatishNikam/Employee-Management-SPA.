@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+</head>
+<body>
+
+<h2>Employee Form</h2>
+
+ID: <input type="number" id="id"><br><br>
+Name: <input type="text" id="name"><br><br>
+Role: <input type="text" id="role"><br><br>
+Salary: <input type="number" id="salary"><br><br>
+
+<button onclick="addEmployee()">Add Employee</button>
+
+<h2>Employee Details</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Salary</th>
+    </tr>
+    <tbody id="data"></tbody>
+</table>
+
+<script>
+function addEmployee() {
+    let id = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let role = document.getElementById("role").value;
+    let salary = document.getElementById("salary").value;
+
+    if (id == "" || name == "" || role == "" || salary == "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let row = "<tr><td>" + id + "</td><td>" + name +
+              "</td><td>" + role + "</td><td>" + salary +
+              "</td></tr>";
+
+    document.getElementById("data").innerHTML += row;
+
+    document.getElementById("id").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("role").value = "";
+    document.getElementById("salary").value = "";
+}
+</script>
+
+</body>
+</html>
